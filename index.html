@@ -11,9 +11,9 @@
     }
 
     video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      position: absolute; /* Set the video to absolute position */
+      object-fit: contain;
+
     }
   </style>
 </head>
@@ -33,12 +33,34 @@
       // Add more video files as needed
     ];
 
+function mapNumber(number, inMin, inMax, outMin, outMax) {
+  // Ensure the input number is within the input range
+  number = Math.min(Math.max(number, inMin), inMax);
+  
+  // Map the number from the input range to the output range
+  const inRange = inMax - inMin;
+  const outRange = outMax - outMin;
+  const scaledNumber = (number - inMin) / inRange;
+  const mappedNumber = (scaledNumber * outRange) + outMin;
+
+  return mappedNumber;
+}
     function playRandomVideo() {
+
       const randomIndex = Math.floor(Math.random() * videoFileList.length);
       const randomVideoFile = videoFileList[randomIndex];
       const videoSource = videoDirectory + randomVideoFile;
 
+      // Set a random position for the video
+      const maxWidth = videoContainer.clientWidth - videoPlayer.clientWidth;
+      const maxHeight = videoContainer.clientHeight - videoPlayer.clientHeight;
+      videoPlayer.style.left =mapNumber( Math.random() * maxWidth, 0,maxWidth,0,10) + 'px';
+      videoPlayer.style.top = mapNumber(Math.random() * maxHeight,0,maxHeight,0,10) + 'px';
+        console.log(videoPlayer.style.top)
+        console.log(videoPlayer.style.left)
+      // Once the video source is set, show the video element
       videoPlayer.src = videoSource;
+      videoPlayer.style.display = 'block';
 
       videoPlayer.onended = () => {
         videoPlayer.src = '';
@@ -46,7 +68,6 @@
       };
     }
 
-    playRandomVideo();
 
 
     function resizeVideoContainer() {
@@ -56,18 +77,25 @@
 
       if (windowWidth / windowHeight > videoAspectRatio) {
         videoContainer.style.width = windowHeight * videoAspectRatio + 'px';
-        videoContainer.style.height = '100%';
+        videoContainer.style.height = windowWidth / videoAspectRatio + 'px';
+        //videoContainer.style.height = '100%';
       } else {
         videoContainer.style.width = '100%';
         videoContainer.style.height = windowWidth / videoAspectRatio + 'px';
       }
     }
+      resizeVideoContainer();
+      playRandomVideo();
 
     window.addEventListener('resize', resizeVideoContainer);
     videoPlayer.addEventListener('loadedmetadata', resizeVideoContainer);
 
     // Initialize the container size on page load
-    window.addEventListener('load', resizeVideoContainer);
+    window.addEventListener('load', function() {
+      resizeVideoContainer();
+      playRandomVideo();
+    });
+    //window.addEventListener('load', resizeVideoContainer);
 
   </script>
 </body>
