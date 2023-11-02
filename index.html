@@ -54,8 +54,8 @@ function mapNumber(number, inMin, inMax, outMin, outMax) {
       // Set a random position for the video
       const maxWidth = videoContainer.clientWidth - videoPlayer.clientWidth;
       const maxHeight = videoContainer.clientHeight - videoPlayer.clientHeight;
-      videoPlayer.style.left =mapNumber( Math.random() * maxWidth, 0,maxWidth,0,10) + 'px';
-      videoPlayer.style.top = mapNumber(Math.random() * maxHeight,0,maxHeight,0,10) + 'px';
+      videoPlayer.style.left =mapNumber( Math.random() * maxWidth, 0,maxWidth,0,maxWidth/2) + 'px';
+      videoPlayer.style.top = mapNumber(Math.random() * maxHeight,0,maxHeight,0,maxHeight/2) + 'px';
         console.log(videoPlayer.style.top)
         console.log(videoPlayer.style.left)
       // Once the video source is set, show the video element
