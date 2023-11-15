@@ -52,7 +52,7 @@ video_words_dict = {
 
 delay=5
 overlap_count = 4  # Number of overlapping videos
-screen_number = 0
+screen_number = 1
 sequential_mode = True
 def on_key_release(key):
     #print(key)
@@ -95,13 +95,14 @@ def play_random_video():
         "mpv",
         video_source,
         #"--no-audio",  # Mute audio
-        #"--autofit=1920x1080",  # Adjust to your desired video dimensions
+        "--autofit=640x360", #1920x1080",  # Adjust to your desired video dimensions
         f"--geometry={window_x}:{window_y}",  # Set the window position
         "--on-all-workspaces",
         "--keep-open=no",  # Close mpv when playback ends
         "--no-osc",  # Disable on-screen controller
         "--no-input-default-bindings",  # Disable default input bindings
-        "--screen=0",  # Set the specific screen
+        "--screen=1",  # Set the specific screen
+        "--no-border"  # Hide the video outline
 
     ]
 
@@ -133,6 +134,7 @@ def overlap_mode(overlap_count):
                 video_source,
                 #"--no-audio",  # Mute audio
                 #"--autofit=1920x1080",  # Adjust to your desired video dimensions
+                "--autofit=640x360", #1920x1080",  # Adjust to your desired video dimensions
                 f"--geometry={window_x}:{window_y}",  # Set the window position
                 f"--screen={screen_number}",  # Set the specific screen
                 "--on-all-workspaces",
@@ -165,6 +167,7 @@ def overlap_mode(overlap_count):
                     video_source,
                     #"--no-audio",  # Mute audio
                     #"--autofit=1920x1080",  # Adjust to your desired video dimensions
+                    "--autofit=640x360", #1920x1080",  # Adjust to your desired video dimensions
                     f"--geometry={window_x}:{window_y}",  # Set the window position
                     f"--screen={screen_number}",  # Set the specific screen
 
