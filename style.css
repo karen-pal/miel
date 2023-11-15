@@ -35,6 +35,7 @@ img {
 h1 {
     font-size:10vh;
     background: linear-gradient(90deg, rgba(212,212,212,1) 0%, rgba(133, 129, 129,1) 100%);
+ line-height: 70%; 
 }
 #final {
     background: linear-gradient(90deg, rgba(212,212,212,1) 0%, rgba(133, 129, 129,1) 100%);
