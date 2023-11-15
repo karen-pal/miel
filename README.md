@@ -56,7 +56,7 @@ http-server --cors
 
 luego abrir el archivo en el navegador
 
-index.html
+index_loopera.html
 
 # Implementacion en python
 
