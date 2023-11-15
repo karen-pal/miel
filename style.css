@@ -87,4 +87,31 @@ html{position:absolute;
   display: block;
   text-align: center;
 }
+.video-responsive{
+overflow:hidden;
+padding-bottom:56.25%;
+position:relative;
+height:0;
+}
+.video-responsive iframe{
+left:0;
+top:0;
+height:100%;
+width:100%;
+position:absolute;
+}
+ /* Add some basic styling for the code block */
+        pre {
+            background-color: black;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto; /* Enable horizontal scrolling if needed */
+            white-space: pre-wrap; /* Allow text to wrap on overflow */
+        }
 
+
+        /* Optional: Style the code for better readability */
+        code {
+            font-family: 'Courier New', monospace;
+            color: white !important;
+        }

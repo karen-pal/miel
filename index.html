@@ -18,7 +18,7 @@
 <!--a id="lang" href="en.html">EN</a--!>
 </br>
 
-<img src="./vivo.png" alt="Captura de pantalla del circuito levantado"/>
+<img src="./assets/vivo.png" alt="Captura de pantalla del circuito levantado"/>
 <h2> Introducción </h2>
 <p id="introducción">
 
@@ -29,7 +29,7 @@ Miel de purga, desde mi punto de vista
 en primera persona, como extranjera 
 <br>
 <br>
-Es muy dificil para mi no ver a Córdoba en Cali y a Cali en Córdoba.
+Es muy difícil para mí no ver a Córdoba en Cali y a Cali en Córdoba.
 <br>
 <img src="./assets/cbacali.png" alt="Cali y cordoba"/>
 
@@ -39,6 +39,8 @@ la córdoba/cali colonial y católica - cuna del cordobazo/estallido.... ejemplo
 En el medio de un proceso electoral en donde se reaviva cínicamente una de las experiencias más traumáticas de la historia argentina, escuchar las experiencias de aquelles que lo vivieron hace dos años o un año y medio.
 
 <br>
+
+ya no sentirlo con 40 años de distancia - sentirlo cerca
 <br>
 y buscar en internet las cifras oficiales - y después hacer cuentas rápidas... cuántas personas conocí en Cali? De ellas, c/u al menos conoce una persona asesinada.
 <br>
@@ -95,7 +97,7 @@ Alguien explorando la capacidad auto-inmersiva de la consciencia.
 
 
 </p>
-<h2> Paisaje Retrato Sonoro </h2>
+<h2> Miel: loopera textovisual </h2>
 <p>
 Venía trabajando en mi colaboratorio de live coding con toda la furia - tres días de live coding y de ejercicios de escucha. Ese fue un experimento para mí - tomarme en serio la primera parte de mi definición de live coding.
 <br>
@@ -103,12 +105,7 @@ Venía trabajando en mi colaboratorio de live coding con toda la furia - tres d�
 En paralelo
 <br>
 <br>
-Nunca dejé de grabar sonidos. Grabé radios en taxis, conversaciones en ubers, pruebas técnicas, noches sola, conciertos, bailes. Grabé ranas, cañas de azucar, el piano de sebastián y la increible voz de Beatriz.
-<img src="./assets/grabaciones.png" alt="Foto de grabaciones de radios, sonidos, ranas"/>
-
-<br>
-<br>
-Por medio de John entré en contacto con Javier Blanco. Me contó que estaba haciendo una obra llamada Miel de Purga. La Miel de Purga es un derivado de la caña de azucar que se usa como laxante en ganado y que es un material visual que está entre la miel, la sangre y el petróleo.
+Por medio de John entré en contacto con Javier Blanco. Gracias John. Javier me contó que estaba haciendo una obra llamada Miel de Purga. La Miel de Purga es un derivado de la caña de azucar que se usa como laxante en ganado y que es un material visual que está entre la miel, la sangre y el petróleo.
 
 <br>
 En paralelo yo recordaba
@@ -121,10 +118,120 @@ No podía dejar de relacionarlo con Córdoba y la soja.
 <br>
 
 Obvio, vamos a colaborar. Say no more. O como dice Javier: "Vale".
+<br>
+<br>
+La primera colaboración que pensamos fue visual: la primera fecha la tenemos en dos días - no hay problema, yo me dedico a improvisar. Contame qué te imaginás 
+
+No sé
+
+
+Me imagino que esperás algo tirando a minimalista. 
+
+Si puede ser. Estamos con Mario grabando material audiovisual, tal vez podés hacer algo con eso?
+
+Si obvio - que me pase Mario las cosas.
+
+
+Con Mario grabaron entrevistas cortas a les performers, respondiendo una serie de preguntas sobre el estallido de Cali.
+
+Mario además se tomó el trabajo de escucharlas y anotar las partes que le parecían más interesantes de cada una. Las anotaciones de tiempo estaban un poco a ojo así que lo primero que hice fue
+
+por cada video:
+
+extraer las transcripciones automáticamente usando whisper.cpp
+
+<img src="./assets/whisper.png" alt="Captura de transcripción automática"/>
+<br>
+<img src="./assets/colab.png" alt="Captura de transcripción automática"/>
+<br>
+<br>
+Si bien a whisper.cpp le cuesta mucho más las transcripciones automáticas del acento caleño que de los acentos que había probado antes, de esta forma podía complementar el trabajo de Mario para facilitarme la tarea que me esperaba.
 
 <br>
 <br>
-Los procesos colaborativos implican unas idas y vueltas energéticas y uno no siempre está con ese nivel de fluidez. El grupo venía intentando confluir energías en procesos sonoros para la primera mitad de la performance, pero ese proceso que venía siendo se cayó frente a mí - simplemente dije "yo puedo hacerlo" porque es lo que sentía.
+Me imaginaba lo siguiente:
+
+una loopera que me permitiera disparar rondas de video en simultaneo, en lugares random de la pantalla ("paralelo")
+
+y que además me permitiera, si la rítmica me lo pidiera, disparar de a un video a la vez ("secuencial")
+
+Hice dos implementaciones: una en js y otra en python. Las implementé en una noche y una mañana.
+
+Me acuerdo me desperté a las 4am hiper manija - quería tenerlo para la fecha sí o sí.
+
+</p>
+
+<div class="video-responsive">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/xS7I7Vy3uNs?si=eISgjS_YoXSb65fc" title="Desarrollo YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<pre>
+<code>
+
+Release notes
+loopera de videos hecha con python y mpv inspirada en relatos del estallido Colombiano, contado por estudiantes de danzas de UniValle. En colaboración con el proyecto de Javier Blanco.
+
+Esta loopera tiene dos modos: secuencial y overlap.
+
+Puedo controlar con el teclado tiempo de espera entre una aparición de próxima camada de videos o video, y la cantidad de videos a mostrar de una sola vez en modo overlap.
+
+En un uso final (en esta versión) puedo elegir que se vean solo los videos entrando y saliendo, ya que puedo mandar los videos a la pantalla final, no mostrando la interfaz con las letras. Sino tengo las transcripciones aparejadas a los clips con las preguntas y respuestas - por lo que podemos mostrar todo en lo mismo, o una cosa en cada pantalla.
+</code>
+</pre>
+
+<p>
+<br>
+<a target="_blank" href="https://github.com/karen-pal/miel"> Pueden encontrar el código en mi github. Es Libre. </a>
+<br>
+<br>
+Al día siguiente se usó la loopera (que llamé Miel) en un adelanto de los trabajos de colabs en medio del MASS Encuentro. Fue interesante esa primera experiencia. Por momentos me gustó el resultado, pero me pareció que "visualié" demasiado. Tomé nota: para la próxima (que era en una semana y la "definitiva" (incluso, la obra que cierra el MASS) ) tengo que hacer un paso atrás y escuchar/ver mucho más.
+
+<img src="./assets/b1.jpg" alt="Foto de la performance "/>
+<img src="./assets/b3.jpg" alt="Foto de la performance "/>
+<img src="./assets/b4.jpg" alt="Foto de la performance "/>
+<br>
+Viendo las fotos me parece interesante que lo que más me guste es el código sin efecto - sin ejecutar - código que es más texto que algo ejecutado, solo esperando y mostrando una pantalla en negro.
+
+
+<br>
+<br>
+El código escrito pero silenciado
+<br>
+<br>
+un().monton().de().código()
+<br>
+
+hush()
+<br>
+<br>
+
+</p>
+<h2> Paisaje Retrato Sonoro </h2>
+<p>
+Venía trabajando en mi colaboratorio de live coding con toda la furia - tres días de live coding y de ejercicios de escucha. Ese fue un experimento para mí - tomarme en serio la primera parte de mi definición de live coding.
+<br>
+<br>
+En paralelo
+<br>
+<br>
+Nunca dejé de grabar sonidos. Grabé radios en taxis, conversaciones en ubers, pruebas técnicas, noches sola, conciertos, bailes. Grabé ranas, cañas de azucar, el piano de sebastián y la increible voz de Beatriz.
+
+<br>
+<br>
+<img src="./assets/grabaciones.png" alt="Foto de grabaciones de radios, sonidos, ranas"/>
+
+<br>
+<br>
+Con esto venía armando una composición digital a modo de Paisaje Sonoro de Cali. 
+
+<audio id='./assets/paisaje.wav' src='./assets/paisaje.wav' style='width: 100%;' controls></audio>
+<br>
+
+Eventualmente esto implicó que cuando se necesitó sonido, yo ya tenía una base armada que implicó escuchas y exploraciones previas con la mente en los sonidos de Cali.
+<br>
+<br>
+
+
+Los procesos colaborativos implican unas idas y vueltas energéticas y uno no siempre está con ese nivel de fluidez. El grupo venía intentando confluir energías en procesos sonoros para la primera mitad de la performance, pero ese proceso que venía siendo se cayó y lo vi frente a mí - simplemente dije "yo puedo hacerlo" (porque es lo que sentía sinceramente).
 
 <br>
 <br>
@@ -148,6 +255,7 @@ Para que la performance sea más interesante para ella también - hablar con su 
 <br>
 
 Me dio la sensación que le gustó pero no tenía fe Beatriz. El día anterior ya habíamos tirado alguna idea de ese estilo - armando nuestras propias negociaciones sonoras - y había intentado conseguir un estudio de grabación de sonido pro, pero no había funcionado.
+<br>
 <br>
 
 Le dije
